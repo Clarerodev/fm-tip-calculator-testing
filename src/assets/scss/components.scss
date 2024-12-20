@@ -1,0 +1,133 @@
+/*---- Inputs ----*/
+.tp-input-group {
+    background-color: #F3F9FA;
+    display: block;
+    position: relative;
+}
+.tp-input-group .tp-icon-input {
+    padding: 5px;
+}
+.tp-input-group input {
+    background-color: #F3F9FA;  
+    border: none;
+    padding: 10px;
+    padding-left: 25px;
+    width: 90%;
+    color: #00474B;
+    font-weight: 700;
+    border-radius: 5px ;
+}
+.tp-input-group input.is-invalid,
+.tp-input-group input:focus-visible.is-invalid {
+ outline: 2px solid #E17457;
+}
+.tp-input-group input.w-icon {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    text-indent: 10px;
+    border-radius: 5px;
+}
+.tp-input-group input:focus-visible {
+    outline: 2px solid #26C2AE
+}
+.tp-input-group input[type=number] {
+    text-align: right
+}
+.tp-input-group input::placeholder {
+    padding-right: 10px;
+}
+.tp-input-group::before {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    color: #9EBBBD;
+    font-size: 1.5rem;
+}
+.tp-input-group.dollar::before {
+    content: url('./../images/icon-dollar.svg');
+}
+.tp-input-group.people::before {
+    content: url('./../images/icon-person.svg');
+}
+/* Hidding Input type Number arrows - Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Hidding Input type Number arrows - Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/*---- Buttons ----*/
+.tp-button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.tp-button {
+    background-color: #00474B;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.tp-button.active,
+.tp-button:hover {
+    background-color: #26C2AE;
+    color: #00474B;
+}
+.tp-button---action-reset {
+    background-color: #26C2AE;
+    color: #00474B;
+    border: none;
+    padding: 10px 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.tp-button---action-reset:hover {
+    background-color: #9FE8DF;
+    color: #00474B;
+}
+
+/*---- Cards ----*/
+.tp-card {
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+}
+.tp-card-white {
+    background-color: white;
+    border-Radius: 25px;
+}
+.tp-card-green {
+    background-color: #00474B;
+    border-Radius: 15px;
+}
+
+/*---- List ----*/
+.tp-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.tp-list--item-title {
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.tp-list--item-detail {
+    color: #7F9D9F;
+}
+.tp-list--item-total {
+    font-size: 2rem;
+    color: #26C2AE;
+}

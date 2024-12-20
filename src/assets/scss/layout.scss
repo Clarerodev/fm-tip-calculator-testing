@@ -1,0 +1,22 @@
+body {
+    background-color: #C5E4E7;
+    font-family: "Space Mono", serif;
+}
+
+.tip-header {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+h2.tip-header {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: 1rem;
+    color: #3D6666;
+}
+.tp-section {
+    margin-top: 2rem;
+}
