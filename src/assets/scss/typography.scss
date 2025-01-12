@@ -1,14 +1,8 @@
-.tp-label {
-    display: flex;
-    justify-content: space-between;
-    color: #5E7A7D;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+.tp-icon {
+    height: 50px;
+    width: 50px;
 }
-.tp-label--validation {
-    color: #E17457;
-    text-align: right;
-}
-.tp-label--validation span {
-    display: block;
+
+.tp-dollar {
+    background-image: url('./../images/icon-dollar.svg');
 }

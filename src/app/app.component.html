@@ -2,21 +2,25 @@
 <section class="tip-content">
   <div class="tp-splitter-calculator tp-card tp-card-white h-100">
     <div class="tp-calculations">
-      <div class="tp-bill-section">
+      <div class="tp-bill-section tp-section">
         <label for="tp-bill" class="tp-label">
           Bill
           @if (!validated!.bill.status) {
           <span class="tp-label--validation">
             @for (item of validated!.bill.message; track $index) {
-            <span>{{item}}</span>
+              <span>{{item}}</span>
             }
           </span>
           }
         </label>
         <span class="tp-input-group dollar">
-          <input data-testid="bill-input" type="number" name="tp-bill" id="tp-bill"
-            [class]="!validated!.bill.status ? 'is-invalid':''" [(ngModel)]="billValue" (ngModelChange)="onChangeBill($event)"
-            (input)="validateBill($event)" />
+          <input data-testid="bill-input" 
+                type="number" 
+                name="tp-bill" 
+                id="tp-bill"
+                [class]="!validated!.bill.status ? 'is-invalid':''" [(ngModel)]="billValue" 
+                (ngModelChange)="onChangeBill($event)"
+                (input)="validateBill($event)" />
         </span>
       </div>
       <div class="tp-section tp-tip-section">
@@ -32,7 +36,7 @@
           </span>
         </div>
       </div>
-      <div class="tp-section tp-people-section">
+      <div class="tp-people-section tp-section">
         <label for="tp-people" class="tp-label">
           Number of people
           @if (!validated!.people.status) {
@@ -51,17 +55,15 @@
       </div>
     </div>
     <div class="tp-payment tp-section tp-card tp-card-green">
-      @if(tipAmount()) {
-        <div class="tp-list">
-          <div class="tp-list--item-description">
-            <strong class="tp-list--item-title">Tip Amount</strong>
-            <span class="tp-list--item-detail"> / Person</span>
-          </div>
-          <div class="tp-list--item-total">
-            ${{tipAmount()}}
-          </div>
+      <div class="tp-list">
+        <div class="tp-list--item-description">
+          <strong class="tp-list--item-title">Tip Amount</strong>
+          <span class="tp-list--item-detail"> / Person</span>
         </div>
-      }
+        <div class="tp-list--item-total">
+          ${{tipAmount()}}
+        </div>
+      </div>
       <div class="tp-list">
           <div class="tp-list--item-description">
             <strong class="tp-list--item-title">Total</strong>
