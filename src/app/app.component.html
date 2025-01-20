@@ -28,11 +28,18 @@
         <div class="tp-button-group">
           @for (item of tipPercentages; track item) {
           <button id="btn-{{item}}" class="tp-button tip-button" [class]="tipValue() !== item ? '' : 'active'"
-            (click)="setTip(item)">{{item}}%</button>
+            (click)="onSetTip(item)">{{item}}%</button>
           }
           <span class="tp-input-group">
             <input type="number" name="tp-people" id="tp-people" class="w-icon" placeholder="Custom"
-              [(ngModel)]="tipCustomValue" (ngModelChange)="onChangeCustomTip($event)" />
+              [(ngModel)]="tipCustomValue" 
+              [class]="!validated!.tip ? 'is-invalid':''"
+              (ngModelChange)="onChangeCustomTip($event)"/>
+              @if (!validated!.tip.status) {
+                <span class="tp-label--validation">
+                  <span>{{validated!.tip.message}}</span>
+                </span>
+              }
           </span>
         </div>
       </div>

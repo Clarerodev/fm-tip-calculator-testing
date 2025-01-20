@@ -18,13 +18,11 @@ export class AppComponent {
   countPeople: WritableSignal<number | null> = signal(null);
   tipAmount = computed(() => {
     const totalAmoutByPerson = Number(this.onCalculateTotalAmount());
-    if (isNaN(totalAmoutByPerson)) return null;
-    else return totalAmoutByPerson;
+    return totalAmoutByPerson;
   });
   totalPayment = computed(() => {
     const totalPaymentByPerson = Number(this.onCalculateTotalPayment());
-    if (isNaN(totalPaymentByPerson)) return 0;
-    else return totalPaymentByPerson;
+    return totalPaymentByPerson;
   });
 
   tipCustomValue = null;
@@ -41,24 +39,30 @@ export class AppComponent {
     peopleMoreThanZero: "Can't be zero",
   }
 
-  public validated: { bill: ValidationType, people: ValidationType } | null = null;
+  public validated: { bill: ValidationType, people: ValidationType, tip: ValidationType } | null = null;
 
-  public setTip(percentaje: number) {
+  
+  public onSetTip(percentaje: number) {
     this.tipValue.set(percentaje);
     this.tipCustomValue = null;
     this.tipByPerson.set(percentaje);
   }
 
-  public onChangeCustomTip(event: Event) {
-    if (event) {
-      this.tipValue.set(0);
-      this.tipByPerson.set(Number(event));
+  public onChangeCustomTip(tipValue: number) {
+    if (tipValue) {
+      if (tipValue <= 100) {
+        this.tipValue.set(0);
+        this.tipByPerson.set(tipValue);
+        this.cleanValidation(this.validated!.tip);
+      } else {
+        this.validated!.tip = this.validateStatusNumber(false, this.validated!.tip);
+      }
     }
   }
 
-  public onChangeBill(event: Event) {
+  public onChangeBill(event: number) {
     if (event) {
-      this.billValue.set(Number(event));
+      this.billValue.set(event);
     }
   }
 
@@ -148,6 +152,10 @@ export class AppComponent {
         message: [],
         status: true
       },
+      tip: {
+        message: [],
+        status: true
+      }
     }
   }
 }
